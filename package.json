@@ -1,0 +1,32 @@
+{
+  "name": "challenge-auth0",
+  "version": "1.0.0",
+  "description": "API Rest con manejo de usuarios mediante Auth0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulSarmiento/challenge-auth0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulSarmiento/challenge-auth0/issues"
+  },
+  "homepage": "https://github.com/JulSarmiento/challenge-auth0#readme",
+  "dependencies": {
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.12.0",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  }
+}
