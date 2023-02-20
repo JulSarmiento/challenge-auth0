@@ -1,26 +1,12 @@
-const { expressjwt: expressJwt } = require("express-jwt");
-const jwksRsa = require('jwks-rsa');
+const { auth } = require('express-openid-connect');
 
-// auth config
-const authConfig = {
-  domain: process.env.AUTH0_DOMAIN,
-  audience: process.env.AUTH0_AUDIENCE
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH_0_SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL
 };
 
-// middleware to validate jwt
-const checkJwt = expressJwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`,
-  }),
-  audience: authConfig.audience,
-  issuer: `https://${authConfig.domain}/`,
-  algorithms: ['RS256'],
-});
-
-module.exports = {
-  checkJwt,
-  authConfig
-}
+module.exports = auth(config);
