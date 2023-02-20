@@ -14,6 +14,7 @@ createProduct = async  (req, res) => {
       image,
     });
     
+    console.log(newProduct, "newProduct")
     const product = await newProduct.save();
     res.status(httpStatus.CREATED).send(product);
   }
